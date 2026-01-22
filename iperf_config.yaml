@@ -1,0 +1,14 @@
+ips:
+  IP1: 172.25.128.0      # Deploy node
+  IP2: 172.25.6.29       # User node rack 1
+  IP3: 172.25.26.23      # User node rack 2
+  IP4: 10.24.3.106       # Inference-us-west-1
+  IP5: 10.29.3.177       # Inference-us-west-2
+  IP6: 10.65.255.6       # VAST node
+  IP7: 172.25.155.129    # MGMT node
+  IP8: 172.25.3.6        # DCV node
+
+pems:
+  PEM1: inference-traffic-test-yul.pem
+  PEM2: inference-traffic-test-usw2.pem
+
