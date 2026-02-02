@@ -201,11 +201,13 @@ def probe_port(
 
             if idx in (0, 1):
                 logging.debug("[%s %s port %s] Hostkey/yes-no prompt -> sending 'yes'", console_name, console_ip, port)
+                print(f"  • Port {port} → accepting hostkey")
                 child.sendline("yes")
                 continue
 
             if idx == 2:
                 logging.debug("[%s %s port %s] Password prompt -> sending password", console_name, console_ip, port)
+                print(f"  • Port {port} → sending password")
                 child.sendline(password)
                 password_sent = True
 
@@ -215,11 +217,25 @@ def probe_port(
                 time.sleep(0.2)
                 child.send("\r")
                 continue
-
+            
             if idx == 3:
+                # Try standard "<hostname> login:" match first
                 hostname = child.match.group(1)
                 print(f"  ✓ Port {port} → device hostname: {hostname}")
                 logging.info("[%s %s] SUCCESS port %s -> %s", console_name, console_ip, port, hostname)
+
+                terminate_console_session(child, timeout=term_timeout)
+                return Result(console_name, console_ip, port, user, hostname, "ok")
+
+            # Additional pattern: FreeBSD/arm (hostname) (ttyu0)
+            # Look for this pattern in the output if not matched above
+            after_str = child.after if isinstance(child.after, str) else ""
+            output = child.before + after_str
+            m = re.search(r"FreeBSD/\w+\s+\(([^)]+)\)\s+\(ttyu\d+\)", output)
+            if m:
+                hostname = m.group(1)
+                print(f"  ✓ Port {port} → device hostname: {hostname}")
+                logging.info("[%s %s] SUCCESS port %s -> %s (FreeBSD pattern)", console_name, console_ip, port, hostname)
 
                 terminate_console_session(child, timeout=term_timeout)
                 return Result(console_name, console_ip, port, user, hostname, "ok")

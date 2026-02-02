@@ -1,26 +1,26 @@
-default_password: "tB3zNfqa"
+default_password: "N9bWJfyp"
 console_servers:
-  - name: INF007.CN-1
-    ip: 172.22.1.69
-  - name: INF007.CN-2
-    ip: 172.22.1.70
-  - name: INF007.CN-3
-    ip: 172.22.1.71
-  - name: INF007.CN-4
-    ip: 172.22.1.72
-  - name: INF007.CN-5
-    ip: 172.22.1.73
-  - name: INF007.CN-6
-    ip: 172.22.1.74
-  - name: INF008.CN-1
-    ip: 172.22.1.75
-  - name: INF008.CN-2
-    ip: 172.22.1.76
-  - name: INF008.CN-3
-    ip: 172.22.1.77
-  - name: INF008.CN-4
-    ip: 172.22.1.78
-  - name: INF008.CN-5
-    ip: 172.22.1.79
-  - name: INF008.CN-6
-    ip: 172.22.1.80
+  - name: INF009.CN-1
+    ip: 172.25.1.69
+  - name: INF009.CN-2
+    ip: 172.25.1.70
+  - name: INF009.CN-3
+    ip: 172.25.1.71
+  - name: INF009.CN-4
+    ip: 172.25.1.72
+  - name: INF009.CN-5
+    ip: 172.25.1.73
+  - name: INF009.CN-6
+    ip: 172.25.1.74
+  - name: INF010.CN-1
+    ip: 172.25.1.75
+  - name: INF010.CN-2
+    ip: 172.25.1.76
+  - name: INF010.CN-3
+    ip: 172.25.1.77
+  - name: INF010.CN-4
+    ip: 172.25.1.78
+  - name: INF010.CN-5
+    ip: 172.25.1.79
+  - name: INF010.CN-6
+    ip: 172.25.1.80
